@@ -15,12 +15,11 @@ export default class App extends React.Component {
     searchValue: "",
     fetchingNews: false,
     newsData: [],
-    newsDataPage: 0,
+    newsDataPage: 1,
     newsDataTotalResults: 0
   }
 
-  constructor(props) {
-    super(props)
+  componentDidMount() {
     this.fetchNews()
   }
 
@@ -29,7 +28,7 @@ export default class App extends React.Component {
     if (this.state.tabValue === 'search' && !this.state.searchValue) {
       this.setState({ 
         newsData: [],
-        newsDataPage: 0,
+        newsDataPage: 1,
         newsDataTotalResults: 0
       })
       return
@@ -86,7 +85,7 @@ export default class App extends React.Component {
 
   handlePageChange = async (event, newPage) => {
     await this.setState({
-      newsDataPage: newPage
+      newsDataPage: newPage+1
     })
 
     this.fetchNews()

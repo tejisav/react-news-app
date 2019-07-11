@@ -21,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     verticalAlign: "top"
   },
   tableImg: {
-    width: "100%"
+    width: "100%",
+    maxWidth: "1000px"
   }
 }))
 
@@ -52,7 +53,7 @@ const Results = (props) => {
         component="div"
         count={props.newsDataTotalResults}
         rowsPerPage={10}
-        page={props.newsDataPage}
+        page={props.newsDataPage-1}
         backIconButtonProps={{
           'aria-label': 'Previous Page',
         }}
